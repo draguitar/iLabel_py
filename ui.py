@@ -3,7 +3,7 @@ from PySide6.QtWidgets import (QWidget, QButtonGroup,
 from PySide6.QtGui import QPixmap, QFont
 from PySide6.QtCore import Qt
 from models import WorkFolder
-from models import classes,strlblstyle
+from models import classes,strlblstyle,infostyle
 
 class ClassifyImgLabel(QLabel):
     def __init__(self, workFolder: WorkFolder, width, height, parent=None):
@@ -98,6 +98,10 @@ class InfoPanel(QWidget):
         self.parent=parent
         self.workFolder=workFolder
         self.setFont(QFont('Microsoft JhengHei', 12))
+        
+        infoLabel=QLabel("▉▉▉ Longer_Lung#64639 ▉▉▉")
+        infoLabel.setStyleSheet(infostyle)
+        layout.addWidget(infoLabel)
     
         currentLabel=QLabel('Current Img:')
         self.current=QLineEdit('-')

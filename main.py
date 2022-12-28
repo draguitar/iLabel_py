@@ -2,11 +2,12 @@ import argparse
 import sys, os, subprocess
 from PySide6.QtCore import QSize,QPoint
 from PySide6.QtWidgets import ( QApplication, QWidget, 
-             QVBoxLayout, QHBoxLayout, QPushButton,QFrame,QMessageBox,QDialog
+             QVBoxLayout, QHBoxLayout, QPushButton,QFrame,QMessageBox,QDialog,QLabel
 )
 from ui import ClassifyImgLabel, InfoPanel, ClassifyActivityBtns
 from models import WorkFolder
 from models import winH, winW, imgH, imgW, strbtnstylesys
+
 
 def get_parser():
     parser = argparse.ArgumentParser(description="輸入標記圖片路徑")
@@ -49,6 +50,8 @@ class MainWindow(QWidget):
         panelsLayout.addWidget(exitBtn)
         exitBtn.setStyleSheet(strbtnstylesys)
         exitBtn.clicked.connect(app.exit)
+        
+        
     
     def openDir(self):
         if sys.platform.startswith('win'):
@@ -77,15 +80,10 @@ if __name__ == "__main__":
         
 
         
-        msg = QMessageBox()
-        msg.styleSheet()
-        msg.setText("""
-        power by Longer_lung
-        # 64639
-        """)
-        msg.setStyleSheet("")
-        # msg.windowTitle("Title")
-        msg.show()
+        #msg = QMessageBox()
+        #msg.styleSheet()
+        #msg.setText("")
+        #msg.show()
         
         
         app.exec()

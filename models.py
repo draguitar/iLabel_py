@@ -7,6 +7,7 @@ config.read('config.ini',encoding='utf-8')
 classes = dict(config.items('class'))
 strlblstyle=config['main']['strlblstyle']
 strbtnstylesys=config['main']['strbtnstylesys']
+infostyle=config['main']['infostyle']
 imgH=int(config['main']['imgh'])
 imgW=int(config['main']['imgw'])
 winW=int(config['main']['winw'])
