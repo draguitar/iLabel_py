@@ -4,8 +4,8 @@
 相關說明暫時放置於 https://www.zoominonline.com/dev
 未來補加程式文件, 單元測試後會持續更新.
 ```
-git clone https://github.com/zoominonline/ImgLabel.git
-cd ImgLabel
+git clone https://github.com/draguitar/iLabel_py.git
+cd iLabel_py
 ```
 
 使用前必須先修訂 config.ini 檔案 [class] 段落裡的關於快速鍵與類別的名稱對應關係.
@@ -16,5 +16,5 @@ pip install pyside6 Pillow
 ```
 假設要做標示的所有圖像檔都放置於 C:\YOUR IMAGES 目錄下
 ```
-python main.py 'C:\YOUR_IMAGES_DIR'
+python main.py -d [dataset_path]
 ```
