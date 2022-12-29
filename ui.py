@@ -5,6 +5,8 @@ from PySide6.QtCore import Qt
 from models import WorkFolder
 from models import classes,strlblstyle,infostyle
 
+FONT_STYLE_1 = QFont('Microsoft JhengHei', 8)
+
 class ClassifyImgLabel(QLabel):
     def __init__(self, workFolder: WorkFolder, width, height, parent=None):
         super().__init__(parent)
@@ -130,7 +132,12 @@ class InfoPanel(QWidget):
     
     def refreshPanel(self):
         self.current.setText(self.workFolder.getCurrentName())
+        self.current.setFont(FONT_STYLE_1)
         self.imgSize.setText(self.workFolder.getCurrentSize())
+        self.imgSize.setFont(FONT_STYLE_1)
         self.history.setText(str(len(self.workFolder.history)))
+        self.history.setFont(FONT_STYLE_1)
         self.remains.setText(str(len(self.workFolder.remains)))
+        self.remains.setFont(FONT_STYLE_1)
         self.labeled.setText(self.workFolder.getLabeledCountStr())
+        self.labeled.setFont(FONT_STYLE_1)

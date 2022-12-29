@@ -2,6 +2,13 @@ from PIL import Image
 from pathlib import Path, _windows_flavour, _posix_flavour
 import os
 from configparser import ConfigParser
+
+"""
+configuration
+----------------------------------------------------------------
+讀取config.ini 
+
+"""
 config = ConfigParser()
 config.read('config.ini',encoding='utf-8')
 classes = dict(config.items('class'))
@@ -18,15 +25,15 @@ class WorkFolder(Path):
     擴展 Path 藉由搬移圖片檔到對應的子目錄來進行分類, 分類類別必須記錄在執行目錄下 config.ini 的 [class] 下
     範例:
     [class]
-    1 = others	
-    2 = ARC
+    1 = 迪麗熱巴	
+    2 = Angelababy
     
     Attributes
     ----------
     fullPath : str
-        包含圖片的目錄, 其路徑所對應字串
+        包含圖片的路徑目錄
     self.history : []
-        已經標示完的圖片歷史紀錄, 主要給rollback 用
+        已經標完的圖片歷史紀錄, 主要給rollback 用
 
     Methods
     -------
@@ -84,7 +91,7 @@ class WorkFolder(Path):
         subDirs=[path for path, _, _ in os.walk(self)][1:]
         for p in subDirs:
             cnt=len([name for name in os.listdir(p) if os.path.isfile(os.path.join(p,name))])
-            result=result+  f"{str(cnt)} {classes[Path(p).name]} ({Path(p).name}\n"
+            result=result+  f"● 數量:[{str(cnt)}] {classes[Path(p).name]} ({Path(p).name}\n"
         return result
             
     def rollback(self):
